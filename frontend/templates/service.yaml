@@ -9,5 +9,4 @@ spec:
   - port: 5000
     targetPort: 80
     protocol: "TCP"
-  
-  type: LoadBalancer
+  type: ClusterIP

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: react-app-kube
-        image: ikegabriel/react-starter-2020:latest
+        image: ikegabriel/react-slim:main
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
