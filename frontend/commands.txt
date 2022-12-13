@@ -1,0 +1,16 @@
+#Build docker image
+docker build -t django-slim:fourth .
+
+#Run the docker container
+docker run --publish 8000:8000 django-slim:fourth
+
+-----------------------------------------------------
+
+#Deploy application container to kube cluster
+kubectl apply -f deployment.yaml
+
+#Get the application container service
+kubectl get svc django-slim-service
+
+#Access application service
+minikube tunnel
