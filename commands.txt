@@ -1,0 +1,33 @@
+#Build docker image
+docker build -t django-slim:fourth .
+
+#Run the docker container
+docker run --publish 8000:8000 django-slim:fourth
+
+-----------------------------------------------------
+
+#Deploy application container to kube cluster
+kubectl apply -f deployment.yaml
+
+#Get the application container service
+kubectl get svc django-slim-service
+
+#Access application service
+minikube tunnel
+
+-----------------------------------------------------
+
+#Enable minikube ingress 
+minikube addons enable ingress
+
+#Get kubernetes system pods
+kubectl get pods -n kube-system
+
+#Create namespace
+kubectl create namespace <namespace>
+
+#Get all namespaces
+kubectl get namespaces
+
+#Get all nodes and their full data
+kubectl get nodes -o wide

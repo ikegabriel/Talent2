@@ -1,0 +1,47 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    name: ingress-resource-1
+spec:
+    rules:
+    - host: django.example.com
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+                name: django-slim-service
+                port:
+                    number: 8000
+    - host: react.example.com
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+                name: react-slim-service
+                port:
+                    number: 5000
+    - host: talentserver.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: server
+                port:
+                  number: 5000
+    - host: talentplus.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: client
+                port:
+                  number: 3000
+# ldw;

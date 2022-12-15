@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-app-kube
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: django-slim-app
+  template:
+    metadata:
+      labels:
+        app: django-slim-app
+    spec:
+      containers:
+        - image: ikegabriel/django-slim:fourth
+          name: django-slim-kube
+          imagePullPolicy: IfNotPresent
+          # command: [ "/bin/bash", "-c", "--" ]
+          # args: [ "while true; do sleep 30; done;" ]
+          ports:
+            - containerPort: 8000
