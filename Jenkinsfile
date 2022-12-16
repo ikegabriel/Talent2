@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                get(url: 'https://github.com/ikegabriel/Talent2', branch: 'dev')
+                git(url: 'https://github.com/ikegabriel/Talent2', branch: 'dev')
             }
         }
     }
