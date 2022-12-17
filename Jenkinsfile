@@ -15,12 +15,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh '''cd frontend
-
-
-
-'''
-        sh 'docker build -t frontend-test:jenkins .'
+        sh 'docker build -f frontend/Dockerfile .'
       }
     }
 
