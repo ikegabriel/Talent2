@@ -15,12 +15,10 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'cd frontend'
-        sh '''
+        sh '''cd frontend; 
 
 
 docker build -f Dockerfile .
-
 
 '''
       }
