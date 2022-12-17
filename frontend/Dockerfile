@@ -2,9 +2,9 @@ FROM node:16-alpine as build_stage
 
 WORKDIR /src
 
-COPY package.json .
+COPY frontend/package.json .
 
-COPY yarn.lock .
+COPY frontend/yarn.lock .
 
 RUN yarn install --frozen-lockfile
 
