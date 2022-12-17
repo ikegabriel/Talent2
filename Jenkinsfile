@@ -20,7 +20,7 @@ pipeline {
 
 
 '''
-        sh 'docker build -f frontend-test:jenkins .'
+        sh 'docker build -t frontend-test:jenkins .'
       }
     }
 
