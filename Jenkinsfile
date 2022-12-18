@@ -26,7 +26,7 @@ pipeline {
         cd backend; 
         docker build -t ${BACKEND_NAME} .;
         docker tag ${BACKEND_NAME}:latest ${DOCKER_USER}/${BACKEND_NAME}:${VERSION};
-        docker push 
+        docker push ${DOCKER_USER}/${BACKEND_NAME}:${VERSION}
         '''
       }
     }
