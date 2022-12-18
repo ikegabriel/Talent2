@@ -31,9 +31,11 @@ pipeline {
     }
 
     stage('Push to Dockerhub') {
+      steps {
         withDockerRegistry([credentialsId: "dockerhub-credentials", url: ""]) {
             sh "docker push ${DOCKER_USER}/${BACKEND_NAME}:${VERSION}"
-        }  
+        }
+      }
     }
 
   }
