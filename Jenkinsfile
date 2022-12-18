@@ -25,10 +25,15 @@ pipeline {
         sh '''
         cd backend; 
         docker build -t ${BACKEND_NAME} .;
-        docker tag ${BACKEND_NAME}:latest ${DOCKER_USER}/${BACKEND_NAME}:${VERSION};
-        docker push ${DOCKER_USER}/${BACKEND_NAME}:${VERSION}
+        docker tag ${BACKEND_NAME}:latest ${DOCKER_USER}/${BACKEND_NAME}:${VERSION}
         '''
       }
+    }
+
+    stage('Push to Dockerhub') {
+        withDockerRegistry([credentialsId: "dockerhub-credentials", url: ""]) {
+            sh "docker push ${DOCKER_USER}/${BACKEND_NAME}:${VERSION}"
+        }  
     }
 
   }
